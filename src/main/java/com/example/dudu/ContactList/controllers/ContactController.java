@@ -2,6 +2,7 @@ package com.example.dudu.ContactList.controllers;
 
 import com.example.dudu.ContactList.dto.ContactDTO;
 import com.example.dudu.ContactList.dto.CreateContactRequest;
+import com.example.dudu.ContactList.dto.UpdateContactRequest;
 import com.example.dudu.ContactList.entities.Contact;
 import com.example.dudu.ContactList.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,15 @@ public class ContactController {
     }
 
     @PutMapping("/updtContact/{id}")
-    public ResponseEntity<> updtContact(@PathVariable Long id, @RequestBody com.example.dudu.ContactList.entities.Contact data) {
-
+    public ResponseEntity<Contact> updtContact(@PathVariable Long id, @RequestBody UpdateContactRequest data) {
+        Contact updtCtt = service.updateContact(id, data);
+        return ResponseEntity.ok(updtCtt);
     }
+
+    @DeleteMapping("/deleteContact/{id}")
+    public ResponseEntity<Void> deleteContact(@PathVariable Long id) {
+        service.deleteContact(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
