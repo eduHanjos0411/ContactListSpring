@@ -6,7 +6,6 @@ import com.example.dudu.ContactList.dto.UpdateContactRequest;
 import com.example.dudu.ContactList.entities.Contact;
 import com.example.dudu.ContactList.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
